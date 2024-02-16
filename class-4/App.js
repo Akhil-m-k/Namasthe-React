@@ -1,32 +1,28 @@
-import React from "react";
+// import React from "react";
 import ReactDOM from "react-dom/client";
-
-const heading = React.createElement('h1',{
-    id:"title",
-    key:"head1",
-    style:{
-        color:"red",
-        backgroundColor:"green"
-    }
-},"Hello Akhil!");
-
-const heading2 = React.createElement('h2',// first argument is the tag name
-{ // second argument is attributes
-    id:"title",
-    key:"head2"
-},
-"heading 2"); // third argument is the child elements
-
-// React.createElement => it gives an object => HTML DOM
-
-const container = React.createElement('div',{
-    id:"container"
-},[heading,heading2]);
-
-
-// react element is just an object 
-// console.log(heading);
+// react element
+const heading =  <h1 id="title" key="head1">Hello Akhil</h1>;
+const Title = ()=>(
+    <h1 id="title" key="t1">hello guys</h1>
+)
+// React Component
+// Functional component - NEW
+/// Name of the  component is start with a capital letter,it is not neccessary, but it is just a good practice
+const HeaderComponent = ()=>{
+    return (
+    <div>
+       <Title />
+       <Title></Title>
+        {Title()} 
+        {heading}
+        <h1>functional component content</h1>
+        <h2>this is heading 2</h2>
+    </div>
+    )
+}
 const root  = ReactDOM.createRoot(document.getElementById('root'));
 console.log("akhil");
 /// passing a react element inside the root
-root.render(container);
+// root.render(heading);
+
+root.render(<HeaderComponent />); // for running functional component
